@@ -1,0 +1,12 @@
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\bin\Debug\MangaGrid.exe.config
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\bin\Debug\MangaGrid.exe
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\bin\Debug\MangaGrid.pdb
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\obj\Debug\MangaGrid.csprojResolveAssemblyReference.cache
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\obj\Debug\MangaGrid.Form1.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\obj\Debug\MangaGrid.Properties.Resources.resources
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\obj\Debug\MangaGrid.csproj.GenerateResource.Cache
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\obj\Debug\MangaGrid.exe
+C:\Users\Jacob\Documents\Visual Studio 2017\Projects\GitMangaGrid\MangaGrid\MangaGrid\obj\Debug\MangaGrid.pdb
