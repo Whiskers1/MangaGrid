@@ -20,7 +20,7 @@ namespace MangaGrid
         public void LoadData()
         {
             string data;
-            var fileStream = new FileStream(@"C:\Users\Jacob\Desktop\Manga.txt", FileMode.Open, FileAccess.Read);
+            var fileStream = new FileStream(@"C:\Users\%USERNAME%\Desktop\Manga.txt", FileMode.Open, FileAccess.Read);
             using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
             {
                 data = streamReader.ReadToEnd();
