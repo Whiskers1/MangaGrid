@@ -18,18 +18,28 @@ namespace MangaGrid
         public Form1()
         {
             InitializeComponent();
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            dataGridView1.Rows.Clear();
+            progressBar1.Value = 0;
+            progressBar1.Visible = true;
+            Thread.Sleep(100);
             LoadData();
+            progressBar1.Visible = false;
         }
 
         public void LoadData()
         {
             string data;
             var fileStream = new FileStream(@"C:\Users\Jacob\Desktop\Manga.txt", FileMode.OpenOrCreate, FileAccess.Read);
-            if (fileStream.Length > 0)
-            {
-                File.Copy(@"C:\Users\Jacob\Desktop\Manga.txt", @"C:\Users\Jacob\Desktop\MangaBackUp.txt", true);
-            }
-            var fileStreamBackUp = new FileStream(@"C:\Users\Jacob\Desktop\MangaBackUp.txt", FileMode.OpenOrCreate, FileAccess.Read);
+            //if (fileStream.Length > 0)
+            //{
+            //    File.Copy(@"C:\Users\Jacob\Desktop\Manga.txt", @"C:\Users\Jacob\Desktop\MangaBackUp.txt", true);
+            //}
+
             using (var streamReader = new StreamReader(fileStream, Encoding.UTF8))
             {
                 data = streamReader.ReadToEnd();
@@ -46,6 +56,8 @@ namespace MangaGrid
                 read[i] = split[1];
             }
 
+            progressBar1.Maximum = (dataSplit.Length - 2);
+
             for (int i = 0; i < dataSplit.Length - 1; i++)
             {
                 string Url;
@@ -53,8 +65,9 @@ namespace MangaGrid
                 HtmlAgilityPack.HtmlDocument doc;
 
                 string[] nameA;
-                string last;
+                string[] lastA;
                 string[] pictureA;
+                string last;
                 string date;
                 string name;
                 string picture;
@@ -64,11 +77,13 @@ namespace MangaGrid
                 doc = web.Load(Url);
 
                 nameA = Url.Split('/');
-                last = doc.DocumentNode.SelectNodes("//*[@id=\"chapters\"]/ul/li[1]/div/h3/a")[0].InnerText;
-                last = Regex.Replace(last, "[^0-9.]+", string.Empty);
+                lastA = doc.DocumentNode.SelectNodes("//*[@id=\"chapters\"]/ul/li[1]/div/h3/a")[0].InnerText.Split(' ');
+                last = lastA[lastA.Length - 1];
+                last = last.Replace(".", ",");
+                last = Regex.Replace(last, "[^0-9,]+", string.Empty);
                 pictureA = doc.DocumentNode.SelectNodes("//*[@id=\"series_info\"]/div[1]/img")[0].OuterHtml.Split('"');
                 date = doc.DocumentNode.SelectNodes("//*[@id=\"chapters\"]/ul/li[1]/div/span")[0].InnerText;
-                name = (nameA[4].Replace("_", " "));
+                name = nameA[4].Replace("_", " ");
                 picture = pictureA[3];
 
                 dataGridView1.Rows.Add();
@@ -78,6 +93,7 @@ namespace MangaGrid
                 row.Cells[2].Value = last;
                 row.Cells[3].Value = date;
                 row.Cells[4].Value = picture;
+                row.Cells[5].Value = (Convert.ToDouble(read[i]) - Convert.ToDouble(last));
 
                 if (i == 0)
                 {
@@ -87,6 +103,9 @@ namespace MangaGrid
                     textBox4.Text = date;
                     pictureBox1.Load(picture);
                 }
+                dataGridView1.Update();
+                progressBar1.Increment(1);
+                Thread.Sleep(10);
             }
 
             if (dataGridView1.Rows[0].Cells[0].Value == null)
